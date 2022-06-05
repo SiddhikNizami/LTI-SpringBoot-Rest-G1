@@ -16,6 +16,8 @@ public interface CourseServiceInterface {
 	
 	List<Course> getCourses();
 	
-	List<Course> getCoursesByCourseName(List<String> courses);
+	List<Course> getCoursesByCourseName(List<String> courseNames);
+	
+	List<Course> getCoursesByCourseCode(List<String> courseCodes);
 }
 

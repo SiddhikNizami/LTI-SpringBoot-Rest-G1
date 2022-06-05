@@ -33,4 +33,8 @@ public class CourseDaoImpl {
 		return DataCollections.courses.stream().filter(course->courses.contains(course.getName())).collect(Collectors.toList());
 	}
 
+	public List<Course> getCourseByCourseCode(List<String> courseCodes) {
+		return DataCollections.courses.stream().filter(course->courseCodes.contains(course.getCourseCode())).collect(Collectors.toList());
+	}
+
 }

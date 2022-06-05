@@ -3,8 +3,12 @@ package com.lt.src.serviceInt;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.ResponseEntity;
+
 import com.lt.src.bean.Student;
 import com.lt.src.bean.User;
+
+import net.minidev.json.JSONObject;
 
 
 /**
@@ -22,19 +26,19 @@ public interface StuentServiceInterface {
 	/**
 	 * @param name
 	 */
-	public void courseRegistration(User user);
+	public ResponseEntity courseRegistration(JSONObject jsonBody);
 	
 	/**
 	 * 
 	 */
-	public void dropCourse(UUID userId);
+	public ResponseEntity dropCourse(JSONObject jsonBody);
 	/**
 	 * @param course2
 	 */
 	/**
-	 * @param course2
+	 * @param jsonBody
 	 */
-	public void addCourse(UUID userId);
+	public ResponseEntity addCourse(JSONObject jsonBody);
 	
 	/**
 	 * view grades

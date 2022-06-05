@@ -71,6 +71,11 @@ public class CourseService implements CourseServiceInterface {
 	public List<Course> getCoursesByCourseName(List<String> courses) {
 		return courseDao.getCourseByCourseName(courses);
 	}
+
+	@Override
+	public List<Course> getCoursesByCourseCode(List<String> courseCodes) {
+		return courseDao.getCourseByCourseCode(courseCodes);
+	}
 	
 
 }
