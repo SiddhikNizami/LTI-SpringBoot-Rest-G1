@@ -8,7 +8,7 @@ import com.lt.src.bean.Course;
 
 public interface CourseServiceInterface {
 
-	void addCourse();
+	void addCourse(Course course);
 
 	void removeCourse();
 	

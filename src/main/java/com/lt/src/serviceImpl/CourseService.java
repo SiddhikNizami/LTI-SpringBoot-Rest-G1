@@ -18,15 +18,8 @@ public class CourseService implements CourseServiceInterface {
 	private CourseDaoImpl courseDao;
 	
 	@Override
-	public void addCourse() {
-			Course course = new Course();
-			course.setCourseCode(course.getCourseCode());
-			course.setName(course.getName());
-			course.setOffered(course.isOffered());
-			course.setInstructor(course.getInstructor());
-			course.setPrice(course.getPrice());
+	public void addCourse(Course course) {
 			courseDao.saveCourse(course);
-			
 			System.out.println("Course successfully added");
 			
 		}	

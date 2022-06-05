@@ -34,25 +34,14 @@ public class ProfessorService implements ProfessorServiceInterface{
 
 
 	@Override
-	public void addProfessor() {
-		boolean isExit = false;
-		while(!isExit) {
+	public void addProfessor(Professor professor) {
 			User user = new User();
-			System.out.println("Enter the emailId");
-		   Professor professor = new Professor();
-			professor.setName(InputConstants.sc.next());
 			professorDao.saveProfessor(professor);
-			user.setUserName(professor.getName());
-			user.setPassword("Admin@123");
 			userService.createUser(user, 1, Role.Professor);
 			userDao.saveUser(user);
-			System.out.println("Professor successfully added");
-			System.out.println("Press 1 to exit or if you want to continue to add new course press 2");
-			if(InputConstants.sc.nextInt()==1) {
-				isExit = true;
-			}
+	
 		}		
-	}
+	
 
 
 
