@@ -26,20 +26,18 @@ public class ProfessorController {
 	@Autowired
 	ProfessorServiceInterface professorService;
 	@Autowired
-	UserServiceInterface userService;
-	@Autowired
-	private UserService userServiceDao; 
+	private UserService userService; 
 	@Autowired
 	private UserDaoImpl userDao;
 	
 	@RequestMapping(value="/addProfessor",method = RequestMethod.POST)
-	public void addProfessor(@RequestBody Professor professor,@RequestBody User user) {
-		professor.setName(professor.getName());
-		user.setUserName(professor.getName());
-		professorService.addProfessor(professor);
+	public void addProfessor(@RequestBody User user) {
 		user.setPassword("Admin@123");
-		userServiceDao.createUser(user, 1, Role.Professor);
-		userDao.saveUser(user);
+		userService.createUser(user, 1, Role.Professor);
+		
+		professorService.addProfessor(user);
+		
+		
 		
 		
 		

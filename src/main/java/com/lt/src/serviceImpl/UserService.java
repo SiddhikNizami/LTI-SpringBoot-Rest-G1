@@ -84,21 +84,21 @@ public class UserService implements UserServiceInterface{
 		user.setIsApprove(isApprove);
 		user.setRole(role.name());
 		user.setSession(false);
-		user.setEmailId(user.getUserName());
-		System.out.println("Enter your first name");
-		user.setFirstName(InputConstants.sc.next());
-		System.out.println("Enter your last name");
-		user.setLastName(InputConstants.sc.next());
-		System.out.println("Enter date of birth (DD/MM/yyyy)");
-		user.setDateOfBirth(InputConstants.sc.next());
-		System.out.println("Enter address");
-		user.setAddress(InputConstants.sc.next());
-		System.out.println("Enter pin code");
-		user.setPincode(InputConstants.sc.nextInt());
-		System.out.println("Enter location");
-		user.setLocation(InputConstants.sc.next());
-		System.out.println("Enter country");
-		user.setCountry(InputConstants.sc.next());
+		userDao.saveUser(user);
+//		user.setEmailId(user.getUserName());
+//		
+//		user.setFirstName(InputConstants.sc.next());
+//		user.setLastName(InputConstants.sc.next());
+//		System.out.println("Enter date of birth (DD/MM/yyyy)");
+//		user.setDateOfBirth(InputConstants.sc.next());
+//		System.out.println("Enter address");
+//		user.setAddress(InputConstants.sc.next());
+//		System.out.println("Enter pin code");
+//		user.setPincode(InputConstants.sc.nextInt());
+//		System.out.println("Enter location");
+//		user.setLocation(InputConstants.sc.next());
+//		System.out.println("Enter country");
+//		user.setCountry(InputConstants.sc.next());
 	}
 
 	public void resetPassword() {

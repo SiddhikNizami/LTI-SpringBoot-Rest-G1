@@ -47,12 +47,7 @@ public class CourseController {
 	
 	@RequestMapping(value="/addCourse",method = RequestMethod.POST)
 	public ResponseEntity SaveCourseDetails (@RequestBody Course course) {
-		course.setCourseCode(course.getCourseCode());
-		course.setInstructor(course.getInstructor());
-		course.setName(course.getName());
-		course.setOffered(course.isOffered());
-		course.setPrice(course.getPrice());
-		System.out.println(course.getPrice()+"price");
+	
 	       couseService.addCourse(course);
 		return new ResponseEntity(course, HttpStatus.OK);
 		

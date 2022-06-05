@@ -34,11 +34,14 @@ public class ProfessorService implements ProfessorServiceInterface{
 
 
 	@Override
-	public void addProfessor(Professor professor) {
-			User user = new User();
+	public void addProfessor(User user) {
+		Professor professor = new Professor();
+				professor.setName(user.getFirstName());
+				
+				
 			professorDao.saveProfessor(professor);
-			userService.createUser(user, 1, Role.Professor);
-			userDao.saveUser(user);
+		//	userService.createUser(user, 1, Role.Professor);
+			//userDao.saveUser(user);
 	
 		}		
 	

@@ -5,7 +5,7 @@ import com.lt.src.bean.User;
 
 public interface ProfessorServiceInterface {
 
-	void addProfessor(Professor professor);
+	void addProfessor(User user );
 
 	void viewEnrolledStudents(User userObj);
 
