@@ -19,11 +19,9 @@ import com.lt.src.bean.Student;
 public class StudentDaoImpl  {
 
 	//needs to delete
-//	static {
-//		dummyData();
-//	}
-
-	//	StudentService studentService = new StudentService();
+	static {
+		dummyData();
+	}
 
 	public List<Student> getStudentsByCourseCode(List<String> courseCodes) {
 
