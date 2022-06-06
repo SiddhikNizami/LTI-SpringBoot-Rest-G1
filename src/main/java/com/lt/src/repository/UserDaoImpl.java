@@ -6,10 +6,15 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.lt.constant.DataCollections;
 import com.lt.constant.Role;
+import com.lt.src.bean.Login;
 import com.lt.src.bean.User;
 
 @Repository
@@ -39,5 +44,6 @@ public class UserDaoImpl  {
 		return DataCollections.users.stream()
 					.filter(user->studentIds.stream().anyMatch(studentId->user.getUserId().equals(studentId))).collect(Collectors.toList());
 	}
-
+	
+	
 }
