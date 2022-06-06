@@ -13,6 +13,8 @@ import com.lt.constant.Role;
 import com.lt.src.bean.Professor;
 import com.lt.src.bean.User;
 import com.lt.src.repository.UserDaoImpl;
+import com.lt.src.serviceImpl.ProfessorService;
+import com.lt.src.serviceImpl.StudentService;
 import com.lt.src.serviceImpl.UserService;
 import com.lt.src.serviceInt.ProfessorServiceInterface;
 import com.lt.src.serviceInt.UserServiceInterface;
@@ -29,6 +31,9 @@ public class ProfessorController {
 	private UserService userService; 
 	@Autowired
 	private UserDaoImpl userDao;
+	@Autowired
+	private StudentService studentService;
+	
 	
 	@RequestMapping(value="/addProfessor",method = RequestMethod.POST)
 	public void addProfessor(@RequestBody User user) {
@@ -37,10 +42,25 @@ public class ProfessorController {
 		
 		professorService.addProfessor(user);
 		
+	}
+	
+	
+	@RequestMapping(value="/viewEnrolledStudents" ,method = RequestMethod.POST)
+	public void viewEnrolledStudents(@RequestBody User userObj) {  
 		
-		
-		
-		
+		professorService.viewEnrolledStudents(userObj);
 	}
 
+	
+	@RequestMapping(value = "/ viewCourse" , method = RequestMethod.POST)
+	public void  viewCourse(@RequestBody User userObj ) {
+		
+		professorService.viewCourse(userObj);	
+		
+	}
+	
+
 }
+	
+	
+
