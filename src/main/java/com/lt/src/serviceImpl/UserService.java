@@ -22,11 +22,13 @@ public class UserService implements UserServiceInterface{
 	
 	@Autowired
 	private StudentService studentService;
+	
+	
 
 
 	
 	
-	public User userLogin() {
+	public User userLogin(User user) {
 		boolean credentialCheck = true;
 		User userObj = null;
 		while(credentialCheck) {
