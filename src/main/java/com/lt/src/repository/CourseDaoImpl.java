@@ -16,6 +16,19 @@ public class CourseDaoImpl {
 		DataCollections.courses.add(course);
 	}
 
+	public String removeCourse(String id) {
+		List<Course> courses =  getAllCourse();
+		for (Course c : courses) {
+			if (c.getCourseCode().equals(id)) {
+				courses.remove(c);
+				return id;
+			}
+		}
+
+		return "";
+	}
+	
+
 	public List<Course> getAllCourse() {
 		return DataCollections.courses;
 	}

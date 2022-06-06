@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.lt.constant.InputConstants;
 import com.lt.src.bean.User;
+import com.lt.src.repository.StudentDaoImpl;
 import com.lt.src.repository.UserDaoImpl;
 import com.lt.src.serviceInt.AdminServiceInterface;
 
@@ -18,12 +19,19 @@ public class AdminService implements AdminServiceInterface{
 	@Autowired
 	private UserDaoImpl userDao;
 	
+	@Autowired
+	private StudentDaoImpl studentDaoImpl;
+	
 	@Override
 	public void addProfessor() {
 		// TODO Auto-generated method stub
 		
 	}
-
+	@Override
+	public UUID approveStudents(UUID input) {
+		return studentDaoImpl.studentApproving(input);
+	} 
+/*
 	@Override
 	public void approveStudents() {
 		List<User> students = userDao.getAllStudentUser();
@@ -56,7 +64,7 @@ public class AdminService implements AdminServiceInterface{
 						 .forEach(std->std.setIsApprove(1));
 		
 	}
-
+*/
 	@Override
 	public void generateReportCard() {
 		// TODO Auto-generated method stub
@@ -67,5 +75,10 @@ public class AdminService implements AdminServiceInterface{
 	public void addCourse() {
 		
 	}
+	@Override
+	public List<User> getStudentList() {
+		return userDao.getAllStudentUser();
+	}
+	
 
 }

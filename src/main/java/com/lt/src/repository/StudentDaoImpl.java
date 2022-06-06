@@ -5,11 +5,15 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.lt.constant.DataCollections;
+import com.lt.constant.Role;
+import com.lt.src.bean.Course;
 import com.lt.src.bean.RegisterCourse;
 import com.lt.src.bean.Student;
+import com.lt.src.bean.User;
 
 /**
  * @author user217
@@ -19,7 +23,10 @@ import com.lt.src.bean.Student;
 public class StudentDaoImpl  {
 
 	
+	
 //	StudentService studentService = new StudentService();
+	@Autowired
+	private UserDaoImpl userDao;
 	
 	public List<Student> getStudentsByCourseName(List<String> courses) {
 		
@@ -27,6 +34,7 @@ public class StudentDaoImpl  {
 				.filter(student-> (student.getCourse()!=null && courses.stream().filter(course->student.getCourse().contains(course)).findAny().isPresent()))
 				.collect(Collectors.toList());
 	}
+	
 	public void courseRegistration(RegisterCourse registerCourse) {
 		
 		DataCollections.registerCourse.add(registerCourse);
@@ -63,4 +71,24 @@ public class StudentDaoImpl  {
 	public void save(Student student) {
 		DataCollections.students.add(student);
 	}
+	/*
+	public void studentApproving(UUID input) {
+		List<User> students = userDao.getAllStudentUser();
+		students.stream().filter(std->std.getUserId().equals(input))
+						 .forEach(std->std.setIsApprove(1));
+		
+	}
+	*/
+	public UUID studentApproving(UUID id) {
+		List<User> students = userDao.getAllStudentUser();
+		for (User c : students) {
+			if (c.getUserId().equals(id)) {
+				c.setIsApprove(1);
+				return id;
+			}
+		}
+
+		return null;
+	}
+	
 }
