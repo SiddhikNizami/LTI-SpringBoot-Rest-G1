@@ -10,7 +10,7 @@ public interface CourseServiceInterface {
 
 	void addCourse(Course course);
 
-	void removeCourse();
+	String removeCourse(String id);
 	
 	Course getCourse();
 	
