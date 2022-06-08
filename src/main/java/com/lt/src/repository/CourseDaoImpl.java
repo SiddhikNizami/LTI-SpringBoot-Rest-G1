@@ -16,6 +16,19 @@ public class CourseDaoImpl {
 		DataCollections.courses.add(course);
 	}
 
+	public String removeCourse(String id) {
+		List<Course> courses =  getAllCourse();
+		for (Course c : courses) {
+			if (c.getCourseCode().equals(id)) {
+				courses.remove(c);
+				return id;
+			}
+		}
+
+		return "";
+	}
+	
+
 	public List<Course> getAllCourse() {
 		return DataCollections.courses;
 	}
@@ -31,6 +44,10 @@ public class CourseDaoImpl {
 	}
 	public List<Course> getCourseByCourseName(List<String> courses) {
 		return DataCollections.courses.stream().filter(course->courses.contains(course.getName())).collect(Collectors.toList());
+	}
+
+	public List<Course> getCourseByCourseCode(List<String> courseCodes) {
+		return DataCollections.courses.stream().filter(course->courseCodes.contains(course.getCourseCode())).collect(Collectors.toList());
 	}
 
 }

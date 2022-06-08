@@ -13,6 +13,8 @@ import java.util.UUID;
  */
 public class RegisterCourse {
 	private UUID studentId;
+	private String branch;
+	
 	public UUID getStudentId() {
 		return studentId;
 	}
@@ -25,7 +27,6 @@ public class RegisterCourse {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
-	private String branch;
 	
 
 }

@@ -10,12 +10,14 @@ public interface CourseServiceInterface {
 
 	void addCourse(Course course);
 
-	void removeCourse();
+	String removeCourse(String id);
 	
 	Course getCourse();
 	
 	List<Course> getCourses();
 	
-	List<Course> getCoursesByCourseName(List<String> courses);
+	List<Course> getCoursesByCourseName(List<String> courseNames);
+	
+	List<Course> getCoursesByCourseCode(List<String> courseCodes);
 }
 

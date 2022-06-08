@@ -20,10 +20,15 @@ public class CourseService implements CourseServiceInterface {
 	@Override
 	public void addCourse(Course course) {
 			courseDao.saveCourse(course);
-			System.out.println("Course successfully added");
+//			System.out.println("Course successfully added");
 			
 		}	
-
+	@Override
+	public String removeCourse(String id) {
+		String status =courseDao.removeCourse(id);;
+		return status;
+	}
+/*
 	@Override
 	public void removeCourse() {
 		List<Course> courses =  courseDao.getAllCourse();
@@ -49,7 +54,7 @@ public class CourseService implements CourseServiceInterface {
 			}
 		}
 	}
-
+*/
 	@Override
 	public Course getCourse() {
 		// TODO Auto-generated method stub
@@ -70,6 +75,11 @@ public class CourseService implements CourseServiceInterface {
 	@Override
 	public List<Course> getCoursesByCourseName(List<String> courses) {
 		return courseDao.getCourseByCourseName(courses);
+	}
+
+	@Override
+	public List<Course> getCoursesByCourseCode(List<String> courseCodes) {
+		return courseDao.getCourseByCourseCode(courseCodes);
 	}
 	
 
