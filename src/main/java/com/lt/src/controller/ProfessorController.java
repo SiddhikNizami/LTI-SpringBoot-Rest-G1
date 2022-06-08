@@ -40,7 +40,7 @@ public class ProfessorController {
 		user.setPassword("Admin@123");
 		userService.createUser(user, 1, Role.Professor);
 		
-//		professorService.addProfessor(user);
+		professorService.addProfessor(user);
 		
 	}
 	

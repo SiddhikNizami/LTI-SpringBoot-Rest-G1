@@ -81,11 +81,11 @@ public class AdminController {
 	}
 
 	@RequestMapping(value="/studentAproval",method = RequestMethod.GET)
-	public ResponseEntity studentAproval() {
+	public ResponseEntity<?> studentAproval() {
 
 		List<User> user = adminService.getStudentList();
 		
-		return new ResponseEntity(user, HttpStatus.OK);
+		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/studentAproval/{id}",method = RequestMethod.PUT)
